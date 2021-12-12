@@ -1,4 +1,4 @@
-import { User } from "../../model/User";
+import { User } from "../../entities/User";
 import { IUsersRepository, ICreateUserDTO } from "../IUsersRepository";
 
 class UsersRepository implements IUsersRepository {
@@ -37,7 +37,8 @@ class UsersRepository implements IUsersRepository {
   }
 
   findByEmail(email: string): User | undefined {
-    // Complete aqui
+    const user = this.users.find((u) => u.email === email);
+    return user;
   }
 
   turnAdmin(receivedUser: User): User {

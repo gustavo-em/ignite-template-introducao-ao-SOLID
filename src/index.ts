@@ -3,18 +3,8 @@ import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
 import { usersRoutes } from "./routes/users.routes";
-import swaggerDocument from "./swagger.json";
-
-const options = {
-    definition: {
-        openapi: "3.0.0",
-        info: {
-            title: "Teste API",
-            version: "1.0.0",
-        },
-    },
-    apis: ["./src/routes/*.ts"], // files containing annotations as above
-};
+import { options } from "./swagger/swaggeroptions";
+import "./database";
 
 const openapiSpecification = swaggerJsdoc(options);
 
