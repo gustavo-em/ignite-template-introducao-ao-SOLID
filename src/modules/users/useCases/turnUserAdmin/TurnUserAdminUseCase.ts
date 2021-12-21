@@ -1,5 +1,5 @@
-import { User } from "../../model/User";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { User } from '../../model/User';
+import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 interface IRequest {
   user_id: string;
@@ -8,11 +8,12 @@ interface IRequest {
 class TurnUserAdminUseCase {
   constructor(private usersRepository: IUsersRepository) { }
 
-  execute({ user_id }: IRequest): User {
+  execute({ user_id }: IRequest): User | Error {
     const user = this.usersRepository.findById(user_id);
 
     if (!user) {
-      throw new Error("Mensagem do erro");
+      throw new Error("a");      
+      return new Error("Mensagem do erro");
     }
 
     const userAdmin = this.usersRepository.turnAdmin(user);

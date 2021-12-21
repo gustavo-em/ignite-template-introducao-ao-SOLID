@@ -1,4 +1,4 @@
-import { User } from "../model/User";
+import { User } from '../model/User';
 
 interface ICreateUserDTO {
   name: string;
@@ -13,4 +13,4 @@ interface IUsersRepository {
   list(): User[];
 }
 
-export { IUsersRepository, ICreateUserDTO };
+export { ICreateUserDTO, IUsersRepository };
